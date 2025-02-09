@@ -27,21 +27,16 @@ class PokemonForm extends LitElement {
     this.pokemon.evolution = { ...this.pokemon.evolution, [field]: event.target.value };
   }
 
-  // Maneja el cambio del checkbox
   handleRepeatChange(event) {
     this.showAlert = event.target.checked;
   }
 
-  // Maneja el evento de guardar
   handleSave(event) {
     event.preventDefault();
     if (this.showAlert) {
-      // Si el checkbox está marcado, muestra una alerta
       alert('Este Pokémon está repetido. No se guardaron los cambios.');
     } else {
-      // Si el checkbox no está marcado, se "guardan" los cambios
       alert(`Cambios guardados: ${this.pokemon.evolution.name} - ${this.pokemon.evolution.type}`);
-      // Aquí podrías agregar lógica para actualizar el Pokémon en tu aplicación
       this.onSubmitted();
     }
   }
